@@ -1,11 +1,15 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-
-local Section = Tab:AddSection({
-	Name = "🏠 Home"
+local Player = game.Players.LocalPlayer
+local Tab = Window:MakeTab({
+	Name = "🏠 Home",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
 
 --[[
-Name = <string> - The name of the section.
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 ]]
 
 local Section = Tab:AddSection({
@@ -50,8 +54,6 @@ Default = <number> - The default value of the slider.
 ValueName = <string> - The text after the value number.
 Callback = <function> - The function of the slider.
 ]]
-
-local Window = OrionLib:MakeWindow({Name = "Neon Hub V2", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 --[[
 Name = <string> - The name of the UI.
@@ -98,6 +100,13 @@ Content = <string> - The content of the notification.
 Image = <string> - The icon of the notification.
 Time = <number> - The duration of the notfication.
 ]]
+
+OrionLib:MakeNotification({
+	Name = "Logged in!",
+	Content = "You're logged in as "..Player.Name.." ",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
 
 OrionLib:MakeNotification({
 	Name = "Okay!",
